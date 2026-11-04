@@ -1,0 +1,542 @@
+#Pratical No 1 :DNA Sequence Analysis
+ 
+
+ 
+dna = input("Enter DNA Sequence: ").upper() 
+ 
+# Length 
+print("\nSequence Length:", len(dna)) 
+ 
+# GC Content g = dna.count("G") c = dna.count("C") gc = ((g + c) / len(dna)) * 100 
+print("GC Content:", round(gc, 2), "%") 
+ 
+# Motif Search motif = input("Enter Motif: ").upper() positions = [] 
+ 
+for i in range(len(dna) - len(motif) + 1):     if dna[i:i + len(motif)] == motif: 
+        positions.append(i) 
+ 
+print("Motif Found At:", positions) 
+ 
+# Start Codon 
+start = dna.find("ATG") 
+ 
+if start != -1: 
+    print("Start Codon Found At:", start) else: 
+    print("Start Codon Not Found") 
+ 
+# Stop Codons 
+stop_codons = ["TAA", "TAG", "TGA"] 
+ 
+for stop in stop_codons:     pos = dna.find(stop) 
+ 
+    if pos != -1:         print(stop, "Found At:", pos)     else: 
+        print(stop, "Not Found") 
+ 
+# Reverse Complement reverse = dna[::-1] complement = "" 
+ 
+for base in reverse:     if base == "A": 
+        complement += "T"     elif base == "T":         complement += "A"     elif base == "G":         complement += "C"     elif base == "C":         complement += "G" 
+ 
+print("Reverse Complement:", complement) 
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+'''
+Output 
+ 
+Enter DNA Sequence: ATGGCGATCGATCGATCGTAGCGCGCTAA 
+ 
+Sequence Length: 29 
+GC Content: 55.17 % 
+Enter Motif: GCG 
+Motif Found At: [3, 20, 22] 
+Start Codon Found At: 0 
+TAA Found At: 26 
+TAG Found At: 18 
+TGA Not Found 
+Reverse Complement: TTAGCGCGCTACGATCGATCGATCGCCAT 
+
+
+
+
+
+
+
+
+
+# User kadun DNA sequence input ghet aahot
+# upper() sequence madhil small letters la capital letters madhe convert karto
+
+dna = input("Enter DNA Sequence: ").upper()
+
+
+# 1. LENGTH OF DNA SEQUENCE
+
+# len() function DNA sequence madhil total characters count karto
+
+print("\nSequence Length:", len(dna))
+
+
+# 2. GC CONTENT
+
+# DNA sequence madhun G ani C bases kiti vela aale aahet te count karto
+
+g = dna.count("G")
+c = dna.count("C")
+
+# GC content percentage calculate karto
+# G ani C chi total sankhya / Total sequence length * 100
+
+gc = ((g + c) / len(dna)) * 100
+
+# round(gc, 2) result decimal point nantar 2 digits paryant dakhavto
+
+print("GC Content:", round(gc, 2), "%")
+
+
+# 3. MOTIF SEARCH
+
+# User kadun search karaycha motif input ghet aahot
+
+motif = input("Enter Motif: ").upper()
+
+# Motif jya positions var sapdel tya store karnyasathi empty list
+
+positions = []
+
+# DNA sequence madhil pratyek possible position check karto
+# len(dna) - len(motif) + 1 mule last possible position suddha check hote
+
+for i in range(len(dna) - len(motif) + 1):
+
+    # DNA sequence madhun motif evdhach part extract karto
+    # Jar extracted part motif sobat match zala tar condition true hote
+
+    if dna[i:i + len(motif)] == motif:
+
+        # Motif chi position list madhe add karto
+        positions.append(i)
+
+# Motif jya positions var sapadla te print karto
+
+print("Motif Found At:", positions)
+
+
+# 4. START CODON
+
+# find() function DNA sequence madhye ATG search karto
+# ATG sapadla tar tyachi position return karto
+# Nahi sapadla tar -1 return karto
+
+start = dna.find("ATG")
+
+if start != -1:
+
+    # Start codon sapadlyas tyachi position print karto
+    print("Start Codon Found At:", start)
+
+else:
+
+    # Start codon sapadla nahi tar ha message print hoto
+    print("Start Codon Not Found")
+
+
+# 5. STOP CODONS
+
+# DNA madhil three main stop codons chi list create keli
+
+stop_codons = ["TAA", "TAG", "TGA"]
+
+# List madhil pratyek stop codon check karto
+
+for stop in stop_codons:
+
+    # find() particular stop codon chi first position return karto
+
+    pos = dna.find(stop)
+
+    if pos != -1:
+
+        # Stop codon sapadlyas tyachi position print karto
+        print(stop, "Found At:", pos)
+
+    else:
+
+        # Stop codon sapadla nahi tar message print karto
+        print(stop, "Not Found")
+
+
+# 6. REVERSE COMPLEMENT
+
+# [::-1] sequence reverse karto
+# Mhanje DNA sequence cha order ulta karto
+
+reverse = dna[::-1]
+
+# Complement sequence store karnyasathi empty string create keli
+
+complement = ""
+
+# Reversed DNA sequence madhil each base check karto
+
+for base in reverse:
+
+    # A cha complementary base T asto
+    if base == "A":
+        complement += "T"
+
+    # T cha complementary base A asto
+    elif base == "T":
+        complement += "A"
+
+    # G cha complementary base C asto
+    elif base == "G":
+        complement += "C"
+
+    # C cha complementary base G asto
+    elif base == "C":
+        complement += "G"
+
+# Final reverse complement sequence print karto
+
+print("Reverse Complement:", complement)
+
+
+
+
+
+
+
+
+
+
+
+
+Enter DNA Sequence: ATGGCGATCGATCGATCGTAGCGCGCTAA
+
+Sequence Length: 29
+GC Content: 55.17 %
+
+Enter Motif: GCG
+
+Motif Found At: [3, 20, 22]
+
+Start Codon Found At: 0
+
+TAA Found At: 26
+TAG Found At: 18
+TGA Not Found
+
+Reverse Complement:
+TTAGCGCGCTACGATCGATCGATCGCCAT
+
+
+
+Understanding the output:
+Output	Explanation
+Sequence Length: 29	Total 29 nucleotides आहेत.
+GC Content: 55.17%	G आणि C मिळून 55.17% आहेत.
+Motif: [3, 20, 22]	GCG हा pattern तीन positions वर सापडला.
+Start: 0		ATG sequence च्या सुरुवातीला आहे.
+TAA: 26			TAA position 26 वर आहे.
+TAG: 18			TAG position 18 वर आहे.
+TGA			हा codon sequence मध्ये नाही.
+
+
+
+
+
+
+
+Q1. What is Bioinformatics?
+Answer in English:
+
+Bioinformatics is the combination of biology, computer science, and mathematics. It is used to store, analyze, and understand biological data.
+
+Answer in Marathi + English Mix:
+
+Bioinformatics म्हणजे Biology, Computer Science आणि Mathematics यांचा combination आहे. याचा उपयोग biological data store, analyze आणि understand करण्यासाठी होतो.
+Q2. What is DNA?
+Answer in English:
+
+DNA stands for Deoxyribonucleic Acid. It carries genetic information in living organisms.
+
+Answer in Marathi + English Mix:
+
+DNA म्हणजे Deoxyribonucleic Acid. हे living organisms मध्ये genetic information store आणि carry करते.
+Q3. What are the four nitrogenous bases of DNA?
+Answer in English:
+
+The four nitrogenous bases of DNA are Adenine (A), Thymine (T), Guanine (G), and Cytosine (C).
+
+Answer in Marathi + English Mix:
+
+DNA मध्ये four nitrogenous bases असतात: Adenine (A), Thymine (T), Guanine (G) आणि Cytosine (C).
+Q4. What is GC Content?
+Answer in English:
+
+GC Content is the percentage of Guanine and Cytosine bases present in a DNA sequence.
+
+Answer in Marathi + English Mix:
+
+GC Content म्हणजे DNA sequence मध्ये Guanine आणि Cytosine bases किती percentage मध्ये आहेत ते.
+Q5. What is the formula for calculating GC Content?
+Answer in English:
+
+GC Content = (Number of G + Number of C) / Total number of bases × 100.
+
+Answer in Marathi + English Mix:
+
+GC Content calculate करण्यासाठी G आणि C ची total संख्या घेऊन total DNA bases ने divide करतो आणि 100 ने multiply करतो.
+Q6. What is a DNA Motif?
+Answer in English:
+
+A DNA motif is a short, specific pattern of nucleotides that may have a biological function.
+
+Answer in Marathi + English Mix:
+
+DNA Motif म्हणजे DNA sequence मधील एक छोटा specific nucleotide pattern असतो, ज्याला biological function असू शकते.
+Q7. What is a Start Codon?
+Answer in English:
+
+ATG is the most common start codon. It indicates the beginning of protein synthesis and codes for Methionine.
+
+Answer in Marathi + English Mix:
+
+ATG हा common start codon आहे. तो protein synthesis ची सुरुवात दर्शवतो आणि Methionine amino acid साठी code करतो.
+Q8. What are Stop Codons?
+Answer in English:
+
+Stop codons are TAA, TAG, and TGA. They signal the end of protein synthesis.
+
+Answer in Marathi + English Mix:
+
+Stop codons म्हणजे TAA, TAG आणि TGA. हे protein synthesis थांबवण्याचा signal देतात.
+Q9. What is a Codon?
+Answer in English:
+
+A codon is a group of three nucleotides that represents an amino acid or a stop signal.
+
+Answer in Marathi + English Mix:
+
+Codon म्हणजे तीन nucleotides चा group असतो. तो एका amino acid साठी किंवा stop signal साठी code करतो.
+Q10. What is an Open Reading Frame (ORF)?
+Answer in English:
+
+An ORF is a continuous sequence of DNA that starts with a start codon and ends with an in-frame stop codon.
+
+Answer in Marathi + English Mix:
+
+ORF म्हणजे DNA sequence मधील असा continuous region जो start codon पासून सुरू होतो आणि same reading frame मधील stop codon वर संपतो.
+Q11. What is Reverse Complement?
+Answer in English:
+
+Reverse Complement is a DNA sequence obtained by reversing the original sequence and replacing each nucleotide with its complementary base.
+
+Answer in Marathi + English Mix:
+
+Reverse Complement म्हणजे original DNA sequence reverse करून प्रत्येक base च्या जागी त्याचा complementary base ठेवणे.
+Q12. What are complementary base pairs in DNA?
+Answer in English:
+
+Adenine pairs with Thymine (A-T), and Guanine pairs with Cytosine (G-C).
+
+Answer in Marathi + English Mix:
+
+DNA मध्ये Adenine सोबत Thymine (A-T) आणि Guanine सोबत Cytosine (G-C) pair होतात.
+Q13. What is the difference between DNA and RNA?
+Answer in English:
+
+DNA is usually double-stranded and contains Thymine. RNA is usually single-stranded and contains Uracil instead of Thymine.
+
+Answer in Marathi + English Mix:
+
+DNA usually double-stranded असतो आणि त्यात Thymine असते. RNA usually single-stranded असतो आणि त्यात Thymine ऐवजी Uracil असते.
+Q14. What is the difference between Transcription and Translation?
+Answer in English:
+
+Transcription is the process of converting DNA information into RNA. Translation is the process of making proteins using RNA information.
+
+Answer in Marathi + English Mix:
+
+Transcription म्हणजे DNA information पासून RNA तयार होणे. Translation म्हणजे RNA च्या information चा वापर करून protein तयार होणे.
+Q15. What is a Gene?
+Answer in English:
+
+A gene is a segment of DNA that contains information to produce a functional RNA or protein.
+
+Answer in Marathi + English Mix:
+
+Gene म्हणजे DNA चा एक specific भाग असतो, ज्यामध्ये functional RNA किंवा protein तयार करण्याची information असते.
+Q16. What is a Mutation?
+Answer in English:
+
+A mutation is a change in the DNA sequence. It can occur naturally or due to external factors.
+
+Answer in Marathi + English Mix:
+
+Mutation म्हणजे DNA sequence मध्ये होणारा change. तो naturally किंवा external factors मुळे होऊ शकतो.
+Q17. What is a Nucleotide?
+Answer in English:
+
+A nucleotide is the basic building block of DNA and RNA. It contains a sugar, phosphate group, and nitrogenous base.
+
+Answer in Marathi + English Mix:
+
+Nucleotide हा DNA आणि RNA चा basic building block आहे. त्यात sugar, phosphate group आणि nitrogenous base असतो.
+Q18. What is the difference between Purines and Pyrimidines?
+Answer in English:
+
+Purines have two rings and include Adenine and Guanine. Pyrimidines have one ring and include Cytosine, Thymine, and Uracil.
+
+Answer in Marathi + English Mix:
+
+Purines मध्ये two rings असतात आणि त्यात Adenine व Guanine येतात. Pyrimidines मध्ये one ring असते आणि त्यात Cytosine, Thymine व Uracil येतात.
+Q19. What is FASTA format?
+Answer in English:
+
+FASTA is a text-based format used to store DNA, RNA, and protein sequences. It starts with a greater-than symbol (>).
+
+Answer in Marathi + English Mix:
+
+FASTA हा DNA, RNA आणि protein sequences store करण्यासाठी वापरला जाणारा text-based format आहे. त्याची सुरुवात greater-than (>) symbol ने होते.
+Q20. What is BLAST?
+Answer in English:
+
+BLAST stands for Basic Local Alignment Search Tool. It is used to find similar DNA or protein sequences in biological databases.
+
+Answer in Marathi + English Mix:
+
+BLAST म्हणजे Basic Local Alignment Search Tool. याचा उपयोग biological databases मध्ये similar DNA किंवा protein sequences शोधण्यासाठी होतो.
+Q21. What is NCBI?
+Answer in English:
+
+NCBI stands for National Center for Biotechnology Information. It provides biological databases and tools for analyzing genetic information.
+
+Answer in Marathi + English Mix:
+
+NCBI म्हणजे National Center for Biotechnology Information. हे biological databases आणि genetic information analyze करण्यासाठी tools provide करते.
+Q22. What is GenBank?
+Answer in English:
+
+GenBank is a public database that stores DNA sequences and their related biological information.
+
+Answer in Marathi + English Mix:
+
+GenBank हा public database आहे, ज्यामध्ये DNA sequences आणि त्यांची related biological information store केलेली असते.
+Q23. What is Sequence Alignment?
+Answer in English:
+
+Sequence Alignment is the process of arranging DNA, RNA, or protein sequences to identify similarities and differences.
+
+Answer in Marathi + English Mix:
+
+Sequence Alignment म्हणजे DNA, RNA किंवा protein sequences arrange करून त्यांच्यातील similarities आणि differences शोधण्याची process आहे.
+Q24. What is the difference between Local and Global Alignment?
+Answer in English:
+
+Global Alignment compares two sequences over their entire length. Local Alignment finds the most similar regions within two sequences.
+
+Answer in Marathi + English Mix:
+
+Global Alignment मध्ये दोन complete sequences compare करतात. Local Alignment मध्ये दोन sequences मधील सर्वात similar regions शोधतात.
+Q25. What is Python and why is it used in Bioinformatics?
+Answer in English:
+
+Python is a high-level programming language. It is used in Bioinformatics to analyze DNA sequences, calculate GC content, and process biological data.
+
+Answer in Marathi + English Mix:
+
+Python ही high-level programming language आहे. Bioinformatics मध्ये DNA sequence analysis, GC content calculation आणि biological data processing साठी वापरतात.
+Q26. What is the use of input() function in Python?
+Answer in English:
+
+The input() function is used to accept data from the user during program execution.
+
+Answer in Marathi + English Mix:
+
+input() function चा उपयोग program run होत असताना user कडून input घेण्यासाठी होतो.
+Q27. What is the use of len() and count() functions?
+Answer in English:
+
+len() returns the total number of elements, while count() returns how many times a particular element appears.
+
+Answer in Marathi + English Mix:
+
+len() total elements ची संख्या सांगतो, तर count() एखादा specific element किती वेळा आला आहे ते सांगतो.
+Q28. What is the use of find() function in Python?
+Answer in English:
+
+The find() function searches for a substring and returns its first position. If it is not found, it returns -1.
+
+Answer in Marathi + English Mix:
+
+find() function sequence मध्ये specific pattern शोधतो आणि त्याची first position return करतो. Pattern सापडला नाही तर -1 return करतो.
+Q29. What is the use of a for loop in this practical?
+Answer in English:
+
+A for loop is used to repeat a block of code for each element or position in a sequence.
+
+Answer in Marathi + English Mix:
+
+for loop चा उपयोग sequence मधील प्रत्येक element किंवा position check करण्यासाठी code repeat करण्यासाठी होतो.
+Q30. What is the biological importance of GC Content?
+Answer in English:
+
+GC Content helps to understand DNA composition and stability. DNA regions with higher GC content generally have higher melting temperatures.
+
+Answer in Marathi + English Mix:
+
+GC Content मुळे DNA ची composition आणि stability समजण्यास मदत होते. ज्या DNA region मध्ये GC content जास्त असते, त्याचा melting temperature generally जास्त असतो.
+
+E. Additional Important Viva Points – Practical No. 1
+External examiner practical मधून काही direct questions सुद्धा विचारू शकतात:
+Question	Short Answer
+What is upper()?	Converts lowercase into uppercase.
+What is append()?	Adds an element to a list.
+What is [::-1]?	Reverses a sequence.
+What is round()?	Rounds a number to specified decimal places.
+What is -1 in find()?	Indicates that the pattern is not found.
+What is indexing?	Accessing elements using their positions.
+What is a list?	A collection used to store multiple values.
+What is a string?	A sequence of characters.
+
+
+
+
+'''
+

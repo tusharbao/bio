@@ -1,0 +1,422 @@
+# 2:RNA-Seq Data Analysis 
+ 
+
+ 
+import pandas as pd 
+ 
+# Read Dataset 
+data = pd.read_csv("rna_seq.csv") 
+ 
+print("RNA-Seq Dataset\n") 
+print(data) 
+ 
+# Calculate Fold Change 
+data["Fold Change"] = data["Treated"] / data["Control"] 
+ 
+status = [] 
+ 
+for fc in data["Fold Change"]:     if fc >= 2: 
+        status.append("Upregulated")     elif fc <= 0.5: 
+        status.append("Downregulated")     else: 
+        status.append("No Significant Change") 
+ 
+data["Status"] = status 
+ 
+print("\nDifferential Gene Expression\n") 
+print(data) 
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+'''
+OUTPUT 
+ 
+Control = 200 
+Treated = 100 
+Fold Change = 0.5 
+Result: Downregulated 
+ 
+Control = 50 
+Treated = 120 
+Fold Change = 2.4 
+Result: Upregulated 
+ 
+Control = 80 
+Treated = 60 
+Fold Change = 0.75 
+Result: No Significant Change 
+
+
+
+
+
+
+
+
+
+
+
+# Pandas library import karto
+# Pandas cha use dataset read, store ani analyze karnyasathi hoto
+
+import pandas as pd
+
+
+# 1. READ DATASET
+
+# CSV file madhun RNA-Seq dataset read karto
+# read_csv() function CSV file la DataFrame madhe convert karto
+
+data = pd.read_csv("rna_seq.csv")
+
+
+# Dataset cha heading print karto
+
+print("RNA-Seq Dataset\n")
+
+# Complete dataset display karto
+
+print(data)
+
+
+# 2. CALCULATE FOLD CHANGE
+
+# Treated sample chi gene expression value
+# Control sample chya expression value ne divide karto
+# Donhi samples madhil gene expression cha ratio milto
+
+data["Fold Change"] = data["Treated"] / data["Control"]
+
+
+# Gene expression status store karnyasathi empty list create keli
+
+status = []
+
+
+# Fold Change column madhil pratyek value check karto
+
+for fc in data["Fold Change"]:
+
+    # Fold Change 2 kiwa tyapeksha jast asel
+    # tar gene Upregulated consider karto
+
+    if fc >= 2:
+
+        status.append("Upregulated")
+
+    # Fold Change 0.5 kiwa tyapeksha kami asel
+    # tar gene Downregulated consider karto
+
+    elif fc <= 0.5:
+
+        status.append("Downregulated")
+
+    # Fold Change 0.5 peksha jast ani 2 peksha kami asel
+    # tar No Significant Change status deto
+
+    else:
+
+        status.append("No Significant Change")
+
+
+# Calculated status dataset madhe navin column mhanun add karto
+
+data["Status"] = status
+
+
+# 3. DISPLAY DIFFERENTIAL GENE EXPRESSION
+
+# Result cha heading print karto
+
+print("\nDifferential Gene Expression\n")
+
+# Final dataset Fold Change ani Status sahit display karto
+
+print(data)
+
+
+
+
+
+
+
+
+
+
+
+
+
+Q1. What is RNA-Seq?
+Answer in English:
+
+RNA-Seq stands for RNA Sequencing. It is a technique used to study gene expression by analyzing RNA molecules.
+
+Answer in Marathi + English Mix:
+
+RNA-Seq म्हणजे RNA Sequencing. ही technique वापरून sample मधील genes किती express होत आहेत हे analyze केले जाते.
+Q2. What is the main purpose of RNA-Seq?
+Answer in English:
+
+The main purpose of RNA-Seq is to measure gene expression and identify changes in RNA levels.
+
+Answer in Marathi + English Mix:
+
+RNA-Seq चा main purpose म्हणजे gene expression measure करणे आणि RNA levels मधील changes identify करणे.
+Q3. What is Gene Expression?
+Answer in English:
+
+Gene Expression is the process by which information from a gene is used to produce RNA or protein.
+
+Answer in Marathi + English Mix:
+
+Gene Expression म्हणजे gene मधील information वापरून RNA किंवा protein तयार होण्याची process आहे.
+Q4. What is Differential Gene Expression?
+Answer in English:
+
+Differential Gene Expression means identifying differences in gene expression between two or more conditions or samples.
+
+Answer in Marathi + English Mix:
+
+Differential Gene Expression म्हणजे दोन किंवा अधिक samples मधील gene expression मधील differences identify करणे.
+Q5. What is Fold Change?
+Answer in English:
+
+Fold Change is the ratio of gene expression in the treated sample to the control sample.
+
+Answer in Marathi + English Mix:
+
+Fold Change म्हणजे Treated sample मधील gene expression ला Control sample मधील gene expression ने divide केल्यावर मिळणारा ratio.
+Q6. What is the formula for Fold Change?
+Answer in English:
+
+Fold Change = Treated Expression / Control Expression.
+
+Answer in Marathi + English Mix:
+
+Fold Change calculate करण्यासाठी Treated sample ची value Control sample च्या value ने divide करतो.
+Q7. What is Upregulation?
+Answer in English:
+
+Upregulation means an increase in gene expression compared to the control sample.
+
+Answer in Marathi + English Mix:
+
+Upregulation म्हणजे Control sample च्या तुलनेत Treated sample मध्ये gene expression वाढणे.
+Q8. What is Downregulation?
+Answer in English:
+
+Downregulation means a decrease in gene expression compared to the control sample.
+
+Answer in Marathi + English Mix:
+
+Downregulation म्हणजे Control sample च्या तुलनेत Treated sample मध्ये gene expression कमी होणे.
+Q9. What is Control Sample?
+Answer in English:
+
+A control sample is a normal sample that does not receive the experimental treatment.
+
+Answer in Marathi + English Mix:
+
+Control sample म्हणजे असा normal sample ज्याला experiment मधील treatment दिलेले नसते.
+Q10. What is a Treated Sample?
+Answer in English:
+
+A treated sample is a sample that receives a specific treatment or experimental condition.
+
+Answer in Marathi + English Mix:
+
+Treated sample म्हणजे असा sample ज्याला specific treatment किंवा experimental condition दिलेली असते.
+Q11. What is the difference between Upregulation and Downregulation?
+Answer in English:
+
+Upregulation means an increase in gene expression, while Downregulation means a decrease in gene expression.
+
+Answer in Marathi + English Mix:
+
+Upregulation म्हणजे gene expression वाढणे आणि Downregulation म्हणजे gene expression कमी होणे.
+Q12. What is the role of Pandas in this practical?
+Answer in English:
+
+Pandas is a Python library used to read, organize, manipulate, and analyze RNA-Seq datasets.
+
+Answer in Marathi + English Mix:
+
+Pandas ही Python library आहे. तिचा उपयोग RNA-Seq dataset read, organize आणि analyze करण्यासाठी होतो.
+Q13. What is a CSV file?
+Answer in English:
+
+CSV stands for Comma-Separated Values. It is a file format used to store tabular data.
+
+Answer in Marathi + English Mix:
+
+CSV म्हणजे Comma-Separated Values. हा format rows आणि columns मध्ये data store करण्यासाठी वापरला जातो.
+Q14. What is the use of read_csv()?
+Answer in English:
+
+The read_csv() function is used to read data from a CSV file into a Pandas DataFrame.
+
+Answer in Marathi + English Mix:
+
+read_csv() function चा उपयोग CSV file मधील data Pandas DataFrame मध्ये read करण्यासाठी होतो.
+Q15. What is a DataFrame?
+Answer in English:
+
+A DataFrame is a two-dimensional data structure containing rows and columns.
+
+Answer in Marathi + English Mix:
+
+DataFrame म्हणजे rows आणि columns असलेली table-like data structure आहे.
+Q16. What is the use of a for loop in this practical?
+Answer in English:
+
+A for loop is used to check each Fold Change value and assign the appropriate gene expression status.
+
+Answer in Marathi + English Mix:
+
+for loop चा उपयोग प्रत्येक Fold Change value check करून त्याला योग्य gene expression status assign करण्यासाठी होतो.
+Q17. Why do we use an if-elif-else statement?
+Answer in English:
+
+It is used to check multiple conditions and execute the appropriate block of code.
+
+Answer in Marathi + English Mix:
+
+if-elif-else चा उपयोग multiple conditions check करून योग्य code execute करण्यासाठी होतो.
+Q18. Why is Fold Change greater than or equal to 2 considered Upregulated in this practical?
+Answer in English:
+
+Because it indicates that gene expression in the treated sample is at least two times higher than in the control sample.
+
+Answer in Marathi + English Mix:
+
+Fold Change 2 किंवा जास्त असेल तर Treated sample मधील gene expression Control sample पेक्षा कमीत कमी दोन पट जास्त असते.
+Q19. Why is Fold Change less than or equal to 0.5 considered Downregulated?
+Answer in English:
+
+Because it indicates that gene expression in the treated sample is half or less than half of the control sample.
+
+Answer in Marathi + English Mix:
+
+Fold Change 0.5 किंवा कमी असेल तर Treated sample मधील gene expression Control sample च्या अर्धी किंवा त्यापेक्षा कमी असते.
+Q20. What happens when Fold Change is 1?
+Answer in English:
+
+When Fold Change is 1, gene expression is equal in both control and treated samples.
+
+Answer in Marathi + English Mix:
+
+Fold Change 1 असेल तर Control आणि Treated दोन्ही samples मधील gene expression समान असते.
+Q21. What is the difference between DNA and RNA?
+Answer in English:
+
+DNA is usually double-stranded and contains Thymine, while RNA is usually single-stranded and contains Uracil instead of Thymine.
+
+Answer in Marathi + English Mix:
+
+DNA usually double-stranded असतो आणि त्यात Thymine असते. RNA usually single-stranded असतो आणि त्यात Thymine ऐवजी Uracil असते.
+Q22. What is mRNA?
+Answer in English:
+
+mRNA stands for Messenger RNA. It carries genetic information from DNA to ribosomes for protein synthesis.
+
+Answer in Marathi + English Mix:
+
+mRNA म्हणजे Messenger RNA. हे DNA मधील genetic information ribosomes पर्यंत घेऊन जाते, जिथे protein synthesis होते.
+Q23. What is a Transcriptome?
+Answer in English:
+
+A transcriptome is the complete set of RNA molecules expressed in a cell or tissue at a particular time.
+
+Answer in Marathi + English Mix:
+
+Transcriptome म्हणजे एखाद्या cell किंवा tissue मध्ये specific time ला express होणाऱ्या सर्व RNA molecules चा complete set.
+Q24. What is Gene Annotation?
+Answer in English:
+
+Gene Annotation is the process of identifying genes and assigning information about their functions.
+
+Answer in Marathi + English Mix:
+
+Gene Annotation म्हणजे genes identify करून त्यांची functions आणि biological information assign करण्याची process आहे.
+Q25. What is Functional Annotation?
+Answer in English:
+
+Functional Annotation identifies the biological functions and roles of genes and proteins.
+
+Answer in Marathi + English Mix:
+
+Functional Annotation म्हणजे genes आणि proteins ची biological functions आणि roles identify करणे.
+Q26. What is DESeq2?
+Answer in English:
+
+DESeq2 is an R package used for differential gene expression analysis of RNA-Seq data.
+
+Answer in Marathi + English Mix:
+
+DESeq2 हे R package आहे. याचा उपयोग RNA-Seq data मधील differential gene expression analysis करण्यासाठी होतो.
+Q27. What is p-value?
+Answer in English:
+
+A p-value helps to determine whether an observed result is statistically significant. A smaller p-value provides stronger evidence against the null hypothesis.
+
+Answer in Marathi + English Mix:
+
+p-value चा उपयोग result statistically significant आहे का हे check करण्यासाठी होतो. Generally p-value कमी असेल तर null hypothesis विरुद्ध stronger evidence मिळतो.
+Q28. What is the difference between Fold Change and Log2 Fold Change?
+Answer in English:
+
+Fold Change represents the expression ratio, while Log2 Fold Change represents the logarithm of that ratio using base 2.
+
+Answer in Marathi + English Mix:
+
+Fold Change म्हणजे gene expression चा ratio आणि Log2 Fold Change म्हणजे त्या ratio चा base 2 logarithm. Upregulation साठी positive आणि Downregulation साठी negative value मिळते.
+Q29. What is the importance of RNA-Seq in medical research?
+Answer in English:
+
+RNA-Seq helps researchers identify changes in gene expression related to diseases, drug responses, and biological conditions.
+
+Answer in Marathi + English Mix:
+
+RNA-Seq मुळे diseases, drug responses आणि different biological conditions मुळे genes मध्ये होणारे expression changes identify करता येतात.
+Q30. What are the limitations of this practical?
+Answer in English:
+
+This practical uses simple Fold Change thresholds. It does not perform statistical testing, normalization, or functional annotation.
+
+Answer in Marathi + English Mix:
+
+या practical मध्ये फक्त Fold Change thresholds वापरले आहेत. यामध्ये statistical testing, normalization आणि functional annotation केलेले नाही.
+
+
+
+'''
