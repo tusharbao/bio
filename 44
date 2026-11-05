@@ -1,0 +1,535 @@
+#4.Machine Learning for Genomic Data
+
+
+
+ import pandas as pd from sklearn.model_selection import train_test_split from sklearn.ensemble import RandomForestClassifier 
+from sklearn.metrics import accuracy_score 
+ 
+# Create Genomic Dataset data = pd.DataFrame({ 
+    "GeneFeature1": [2.5, 1.2, 3.1, 0.9, 2.8, 1.0, 3.2, 0.8, 2.9, 1.1], 
+    "GeneFeature2": [3.0, 0.8, 3.5, 1.1, 2.9, 0.7, 3.8, 1.0, 3.1, 0.9], 
+    "Class": [ 
+        "Healthy", "Disease", "Healthy", "Disease", "Healthy", 
+        "Disease", "Healthy", "Disease", "Healthy", "Disease" 
+    ] 
+}) 
+ 
+# Save Dataset as CSV 
+data.to_csv("genomic_data.csv", index=False) 
+ 
+# Read Dataset 
+data = pd.read_csv("genomic_data.csv") 
+ 
+print("Genomic Dataset\n") 
+print(data) 
+ 
+# Features 
+X = data[["GeneFeature1", "GeneFeature2"]] 
+ 
+# Target y = data["Class"] 
+ 
+# Split Dataset 
+X_train, X_test, y_train, y_test = train_test_split( 
+    X, 
+    y,     test_size=0.3,     random_state=1,     stratify=y 
+) 
+ 
+# Create Model model = RandomForestClassifier(     n_estimators=100,     random_state=1 
+) 
+ 
+# Train Model 
+model.fit(X_train, y_train) 
+ 
+# Prediction 
+prediction = model.predict(X_test) 
+ 
+print("\nActual Class") 
+print(y_test.values) 
+ 
+print("\nPredicted Class") 
+print(prediction) 
+ 
+# Accuracy 
+accuracy = accuracy_score(y_test, prediction) 
+ 
+print("\nAccuracy:", round(accuracy * 100, 2), "%") 
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+'''
+OUTPUT 
+ 
+Input features: 
+GeneFeature1 = 3.0 
+GeneFeature2 = 3.2 Expected Class: 
+Healthy 
+ 
+Input features: 
+GeneFeature1 = 1.0 
+GeneFeature2 = 0.9 Expected Class: 
+Disease 
+
+
+
+
+
+# Pandas library import karto
+# Dataset create ani manipulate karnyasathi Pandas use karto
+
+import pandas as pd
+
+# Dataset training ani testing madhe split karnyasathi function import karto
+
+from sklearn.model_selection import train_test_split
+
+# Random Forest Classification algorithm import karto
+
+from sklearn.ensemble import RandomForestClassifier
+
+# Model chi accuracy calculate karnyasathi function import karto
+
+from sklearn.metrics import accuracy_score
+
+
+# 1. CREATE GENOMIC DATASET
+
+# Pandas DataFrame create karto
+# GeneFeature1 ani GeneFeature2 he input features aahet
+# Class ha output label aahe
+
+data = pd.DataFrame({
+
+    "GeneFeature1": [2.5, 1.2, 3.1, 0.9, 2.8,
+                     1.0, 3.2, 0.8, 2.9, 1.1],
+
+    "GeneFeature2": [3.0, 0.8, 3.5, 1.1, 2.9,
+                     0.7, 3.8, 1.0, 3.1, 0.9],
+
+    "Class": [
+        "Healthy", "Disease", "Healthy", "Disease", "Healthy",
+        "Disease", "Healthy", "Disease", "Healthy", "Disease"
+    ]
+})
+
+
+# 2. SAVE DATASET AS CSV
+
+# Dataset CSV file madhe save karto
+# index=False mule extra index column save hot nahi
+
+data.to_csv("genomic_data.csv", index=False)
+
+
+# 3. READ DATASET
+
+# Save keleli CSV file punha read karto
+
+data = pd.read_csv("genomic_data.csv")
+
+
+# Dataset cha heading print karto
+
+print("Genomic Dataset\n")
+
+# Complete dataset display karto
+
+print(data)
+
+
+# 4. SELECT FEATURES
+
+# GeneFeature1 ani GeneFeature2 input features mhanun select karto
+# X madhe model la dile janare input data store hoto
+
+X = data[["GeneFeature1", "GeneFeature2"]]
+
+
+# 5. SELECT TARGET
+
+# Class column output target mhanun select karto
+# Y madhe Healthy kiwa Disease labels astat
+
+y = data["Class"]
+
+
+# 6. SPLIT DATASET
+
+# Dataset training ani testing data madhe divide karto
+
+X_train, X_test, y_train, y_test = train_test_split(
+
+    X,                  # Input features
+
+    y,                  # Target labels
+
+    test_size=0.3,      # 30% data testing sathi
+
+    random_state=1,     # Same random split maintain karnyasathi
+
+    stratify=y          # Donhi classes cha proportion maintain karto
+)
+
+
+# 7. CREATE RANDOM FOREST MODEL
+
+# RandomForestClassifier model create karto
+# n_estimators=100 mhanje 100 decision trees use hotat
+# random_state=1 mule reproducible results miltat
+
+model = RandomForestClassifier(
+    n_estimators=100,
+    random_state=1
+)
+
+
+# 8. TRAIN MODEL
+
+# fit() function training data var model train karto
+# Model input features ani output labels madhil patterns learn karto
+
+model.fit(X_train, y_train)
+
+
+# 9. PREDICTION
+
+# predict() function test data var predictions karto
+
+prediction = model.predict(X_test)
+
+
+# Actual test labels display karto
+
+print("\nActual Class")
+
+print(y_test.values)
+
+
+# Model ne predict kelele labels display karto
+
+print("\nPredicted Class")
+
+print(prediction)
+
+
+# 10. CALCULATE ACCURACY
+
+# Actual ani predicted values compare karun accuracy calculate karto
+
+accuracy = accuracy_score(y_test, prediction)
+
+
+# Accuracy percentage madhe display karto
+# round() mule decimal nantar 2 digits display hotat
+
+print("\nAccuracy:", round(accuracy * 100, 2), "%")
+
+
+
+
+
+
+
+
+
+
+Q1. What is Machine Learning?
+Answer in English:
+
+Machine Learning is a branch of Artificial Intelligence that allows computers to learn patterns from data and make predictions.
+
+Answer in Marathi + English Mix:
+
+Machine Learning ही Artificial Intelligence ची branch आहे. यामध्ये computer data मधून patterns learn करून predictions करतो.
+Q2. What is Genomic Data?
+Answer in English:
+
+Genomic Data is biological information related to DNA, genes, and genetic variations of an organism.
+
+Answer in Marathi + English Mix:
+
+Genomic Data म्हणजे organism च्या DNA, genes आणि genetic variations संबंधित biological information.
+Q3. What is Classification?
+Answer in English:
+
+Classification is a Machine Learning technique used to divide data into predefined categories or classes.
+
+Answer in Marathi + English Mix:
+
+Classification म्हणजे data ला predefined categories किंवा classes मध्ये divide करण्याची Machine Learning technique.
+Q4. What is Random Forest?
+Answer in English:
+
+Random Forest is a supervised Machine Learning algorithm that uses multiple Decision Trees to make predictions.
+
+Answer in Marathi + English Mix:
+
+Random Forest हा supervised Machine Learning algorithm आहे. यामध्ये multiple Decision Trees वापरून final prediction केले जाते.
+Q5. What is a Decision Tree?
+Answer in English:
+
+A Decision Tree is a Machine Learning algorithm that makes decisions using conditions and branches.
+
+Answer in Marathi + English Mix:
+
+Decision Tree हा algorithm आहे जो conditions आणि branches वापरून decisions घेतो.
+Q6. What is Supervised Learning?
+Answer in English:
+
+Supervised Learning is a Machine Learning method in which a model learns from labelled training data.
+
+Answer in Marathi + English Mix:
+
+Supervised Learning मध्ये model ला input सोबत correct output labels दिले जातात आणि त्यावरून model शिकतो.
+Q7. What is Unsupervised Learning?
+Answer in English:
+
+Unsupervised Learning is a Machine Learning method in which a model finds patterns in data without labelled outputs.
+
+Answer in Marathi + English Mix:
+
+Unsupervised Learning मध्ये model ला labelled outputs दिले जात नाहीत. तो स्वतः data मधील patterns शोधतो.
+Q8. What is the difference between Classification and Regression?
+Answer in English:
+
+Classification predicts categories or classes, while Regression predicts continuous numerical values.
+
+Answer in Marathi + English Mix:
+
+Classification मध्ये Healthy किंवा Disease सारख्या categories predict करतात, तर Regression मध्ये numerical values predict करतात.
+Q9. What are Features in Machine Learning?
+Answer in English:
+
+Features are input variables used by a Machine Learning model to make predictions.
+
+Answer in Marathi + English Mix:
+
+Features म्हणजे model ला prediction करण्यासाठी दिले जाणारे input variables.
+Q10. What is a Target Variable?
+Answer in English:
+
+A Target Variable is the output that a Machine Learning model tries to predict.
+
+Answer in Marathi + English Mix:
+
+Target Variable म्हणजे model ने predict करायचा output असतो.
+Q11. What is Training Data?
+Answer in English:
+
+Training Data is the dataset used to train the Machine Learning model.
+
+Answer in Marathi + English Mix:
+
+Training Data म्हणजे Machine Learning model ला train करण्यासाठी वापरला जाणारा dataset.
+Q12. What is Testing Data?
+Answer in English:
+
+Testing Data is used to evaluate the performance of a trained Machine Learning model.
+
+Answer in Marathi + English Mix:
+
+Testing Data चा उपयोग trained model किती accurately prediction करतो हे check करण्यासाठी होतो.
+Q13. What is train_test_split()?
+Answer in English:
+
+train_test_split() is a function used to divide a dataset into training and testing parts.
+
+Answer in Marathi + English Mix:
+
+train_test_split() function चा उपयोग dataset ला training आणि testing parts मध्ये divide करण्यासाठी होतो.
+Q14. What is the use of fit() function?
+Answer in English:
+
+The fit() function trains the Machine Learning model using training data.
+
+Answer in Marathi + English Mix:
+
+fit() function training data वापरून Machine Learning model ला train करतो.
+Q15. What is the use of predict() function?
+Answer in English:
+
+The predict() function is used to predict the output for new or testing data.
+
+Answer in Marathi + English Mix:
+
+predict() function चा उपयोग new किंवा testing data चा output predict करण्यासाठी होतो.
+Q16. What is Accuracy?
+Answer in English:
+
+Accuracy measures the percentage of correct predictions made by a Machine Learning model.
+
+Answer in Marathi + English Mix:
+
+Accuracy म्हणजे model ने केलेल्या total predictions पैकी किती percentage predictions correct आहेत ते.
+Q17. What is the formula for Accuracy?
+Answer in English:
+
+Accuracy = (Correct Predictions / Total Predictions) × 100.
+
+Answer in Marathi + English Mix:
+
+Correct predictions ला total predictions ने divide करून 100 ने multiply केल्यावर Accuracy मिळते.
+Q18. What is SVM?
+Answer in English:
+
+SVM stands for Support Vector Machine. It is a supervised Machine Learning algorithm used for classification and regression.
+
+Answer in Marathi + English Mix:
+
+SVM म्हणजे Support Vector Machine. हा supervised algorithm classification आणि regression साठी वापरला जातो.
+Q19. What is the difference between Random Forest and SVM?
+Answer in English:
+
+Random Forest uses multiple Decision Trees, while SVM uses a decision boundary to separate different classes.
+
+Answer in Marathi + English Mix:
+
+Random Forest मध्ये multiple Decision Trees वापरतात, तर SVM मध्ये different classes separate करण्यासाठी decision boundary तयार केली जाते.
+Q20. What is Pandas?
+Answer in English:
+
+Pandas is a Python library used for data manipulation and analysis.
+
+Answer in Marathi + English Mix:
+
+Pandas ही Python library आहे. तिचा उपयोग data manipulate आणि analyze करण्यासाठी होतो.
+Q21. What is Scikit-learn?
+Answer in English:
+
+Scikit-learn is a Python library used to build and evaluate Machine Learning models.
+
+Answer in Marathi + English Mix:
+
+Scikit-learn ही Python library आहे. तिचा उपयोग Machine Learning models create, train आणि evaluate करण्यासाठी होतो.
+Q22. What is the use of n_estimators in Random Forest?
+Answer in English:
+
+n_estimators specifies the number of Decision Trees used in a Random Forest model.
+
+Answer in Marathi + English Mix:
+
+n_estimators म्हणजे Random Forest model मध्ये किती Decision Trees वापरायचे ते specify करतो. आपल्या practical मध्ये 100 trees वापरले आहेत.
+Q23. What is random_state?
+Answer in English:
+
+random_state is used to control randomness and get reproducible results.
+
+Answer in Marathi + English Mix:
+
+random_state चा उपयोग randomness control करून repeated execution मध्ये reproducible results मिळवण्यासाठी होतो.
+Q24. What is Overfitting?
+Answer in English:
+
+Overfitting occurs when a model learns the training data too closely and performs poorly on new data.
+
+Answer in Marathi + English Mix:
+
+Overfitting म्हणजे model training data खूप जास्त learn करतो, त्यामुळे new data वर त्याची performance कमी होते.
+Q25. What is Underfitting?
+Answer in English:
+
+Underfitting occurs when a model fails to learn important patterns from the training data.
+
+Answer in Marathi + English Mix:
+
+Underfitting म्हणजे model training data मधील important patterns व्यवस्थित learn करू शकत नाही.
+Q26. What is Stratified Sampling?
+Answer in English:
+
+Stratified Sampling divides data while maintaining the proportion of each class in training and testing datasets.
+
+Answer in Marathi + English Mix:
+
+Stratified Sampling मध्ये training आणि testing datasets मध्ये प्रत्येक class चे proportion maintain केले जाते.
+Q27. What is Confusion Matrix?
+Answer in English:
+
+A Confusion Matrix is a table used to evaluate a classification model by comparing actual and predicted classes.
+
+Answer in Marathi + English Mix:
+
+Confusion Matrix हा table आहे. याचा उपयोग actual आणि predicted classes compare करून classification model evaluate करण्यासाठी होतो.
+Q28. What is Precision and Recall?
+Answer in English:
+
+Precision measures how many predicted positive cases are actually positive. Recall measures how many actual positive cases are correctly identified.
+
+Answer in Marathi + English Mix:
+
+Precision म्हणजे predicted positive cases पैकी किती खरंच positive आहेत. Recall म्हणजे actual positive cases पैकी किती correctly identify केले आहेत.
+Q29. What are the applications of Machine Learning in Genomics?
+Answer in English:
+
+Machine Learning in Genomics is used for disease prediction, gene classification, mutation detection, and identifying genetic patterns.
+
+Answer in Marathi + English Mix:
+
+Genomics मध्ये Machine Learning चा उपयोग disease prediction, gene classification, mutation detection आणि genetic patterns identify करण्यासाठी होतो.
+Q30. What are the limitations of this practical?
+Answer in English:
+
+This practical uses a very small dataset with only two features. It does not represent real genomic complexity and may not provide reliable medical predictions.
+
+Answer in Marathi + English Mix:
+
+या practical मध्ये फक्त 10 samples आणि 2 features वापरले आहेत. त्यामुळे हे real genomic data ची complexity represent करत नाही आणि reliable medical predictions देऊ शकत नाही.
+
+Quick Revision – Practical No. 4
+External's Question	Answer
+Which algorithm is used?	Random Forest
+Which language is used?	Python
+Which library is used for data?	Pandas
+Which library is used for ML?	Scikit-learn
+How many Decision Trees?	100
+Total dataset samples?	10
+Number of features?	2
+Target column?	Class
+Training data?	70%
+Testing data?	30%
+Which function trains model?	fit()
+Which function predicts?	predict()
+Which function calculates accuracy?	accuracy_score()
+What is SVM?	Support Vector Machine
+What are output classes?	Healthy and Disease
+
+
+
+
+
+
+
+
+'''
+ 
+ 
