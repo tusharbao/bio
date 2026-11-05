@@ -1,0 +1,363 @@
+#3.Protein Structure Prediction
+
+
+
+seq= input("Enter the Protine Sequence:-").upper() print("\nProtein Sequence:", seq) 
+amino ="ACDEFGHIKLMNPQRSTVWY" count=[] for aa in amino: 
+    count=seq.count(aa)     if count>0:         print(aa,":",count) wt = len(seq) * 110 
+print("total Weight is:",wt,"Dalton") 
+
+ 
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+'''
+
+
+OUTPUT 
+Enter the Protine Sequence:-
+tswvtsacdghpqscadscadghpqsacdtswvtsacdghpqscadscadghpqsacdtswvtsacdghpqscadscadghp qsacd 
+ 
+Protein Sequence: 
+TSWVTSACDGHPQSCADSCADGHPQSACDTSWVTSACDGHPQSCADSCADGHPQS
+ACDTSWVTSACDGHPQSCADSCADGHPQSACD 
+A : 12 
+C	: 12 
+D	: 12 
+G	: 6 
+H	: 6 
+P	: 6 
+Q	: 6 
+S	: 15 
+T	: 6 
+V : 3 W : 3 
+total Weight is: 9570 Dalton 
+
+
+
+
+
+
+
+
+# User kadun protein sequence input gheto
+# upper() function small letters la capital letters madhe convert karto
+
+seq = input("Enter the Protein Sequence:-").upper()
+
+
+# Protein sequence display karto
+
+print("\nProtein Sequence:", seq)
+
+
+# 20 standard amino acids chi string create keli
+# Protein madhye normally ya 20 standard amino acids astat
+
+amino = "ACDEFGHIKLMNPQRSTVWY"
+
+
+# Pratyek amino acid chi frequency count karnyasathi loop use karto
+
+for aa in amino:
+
+    # count() function particular amino acid sequence madhye
+    # kiti vela aala aahe te count karto
+
+    count = seq.count(aa)
+
+    # Amino acid present asel mhanje count 0 peksha jast asel
+
+    if count > 0:
+
+        # Amino acid ani tyachi frequency display karto
+
+        print(aa, ":", count)
+
+
+# Protein chi approximate molecular weight calculate karto
+# Average 1 amino acid residue weight 110 Dalton assume karto
+
+wt = len(seq) * 110
+
+
+# Total approximate molecular weight print karto
+
+print("Total Weight is:", wt, "Dalton")
+
+
+
+
+
+
+
+Q1. What is a Protein?
+Answer in English:
+
+A protein is a biological molecule made up of amino acids. It performs important functions such as growth, repair, and enzyme activity.
+
+Answer in Marathi + English Mix:
+
+Protein म्हणजे amino acids पासून बनलेला biological molecule आहे. तो body मध्ये growth, repair आणि enzyme activity सारखी important कामे करतो.
+Q2. What are Amino Acids?
+Answer in English:
+
+Amino acids are the basic building blocks of proteins. There are 20 standard amino acids.
+
+Answer in Marathi + English Mix:
+
+Amino acids हे proteins चे basic building blocks आहेत. Standard proteins मध्ये 20 common amino acids असतात.
+Q3. What is Protein Structure Prediction?
+Answer in English:
+
+Protein Structure Prediction is the process of predicting the three-dimensional structure of a protein from its amino acid sequence.
+
+Answer in Marathi + English Mix:
+
+Protein Structure Prediction म्हणजे amino acid sequence वापरून protein ची three-dimensional structure predict करण्याची process आहे.
+Q4. What are the four levels of Protein Structure?
+Answer in English:
+
+The four levels are Primary, Secondary, Tertiary, and Quaternary structures.
+
+Answer in Marathi + English Mix:
+
+Protein structure चे four levels आहेत: Primary, Secondary, Tertiary आणि Quaternary Structure.
+Q5. What is Primary Structure?
+Answer in English:
+
+Primary Structure is the linear sequence of amino acids in a protein.
+
+Answer in Marathi + English Mix:
+
+Primary Structure म्हणजे protein मधील amino acids ची linear arrangement किंवा sequence.
+Q6. What is Secondary Structure?
+Answer in English:
+
+Secondary Structure refers to local folding of a protein into Alpha Helix and Beta Pleated Sheet.
+
+Answer in Marathi + English Mix:
+
+Secondary Structure म्हणजे protein ची local folding होऊन Alpha Helix आणि Beta Pleated Sheet तयार होणे.
+Q7. What is Tertiary Structure?
+Answer in English:
+
+Tertiary Structure is the overall three-dimensional shape of a single protein chain.
+
+Answer in Marathi + English Mix:
+
+Tertiary Structure म्हणजे single protein chain ची complete three-dimensional folding किंवा shape.
+Q8. What is Quaternary Structure?
+Answer in English:
+
+Quaternary Structure is formed when two or more protein chains combine to form a functional protein.
+
+Answer in Marathi + English Mix:
+
+दोन किंवा अधिक protein chains एकत्र येऊन functional protein तयार करतात, त्याला Quaternary Structure म्हणतात.
+Q9. What is Homology Modeling?
+Answer in English:
+
+Homology Modeling is a method of predicting a protein's 3D structure using the known structure of a similar protein.
+
+Answer in Marathi + English Mix:
+
+Similar protein ची already known 3D structure वापरून दुसऱ्या protein ची structure predict करण्याच्या method ला Homology Modeling म्हणतात.
+Q10. What is Threading?
+Answer in English:
+
+Threading is a method of predicting protein structure by fitting an amino acid sequence into known protein structural templates.
+
+Answer in Marathi + English Mix:
+
+Known protein structural templates मध्ये नवीन amino acid sequence fit करून structure predict करण्याच्या method ला Threading म्हणतात.
+Q11. What is the difference between Homology Modeling and Threading?
+Answer in English:
+
+Homology Modeling uses a similar protein with a known structure as a template. Threading fits a sequence into existing structural templates, even when sequence similarity is low.
+
+Answer in Marathi + English Mix:
+
+Homology Modeling मध्ये similar protein ची known structure वापरतात. Threading मध्ये sequence similarity कमी असली तरी existing structural templates मध्ये sequence fit करतात.
+Q12. What is AlphaFold?
+Answer in English:
+
+AlphaFold is an AI-based system developed by Google DeepMind to predict protein structures.
+
+Answer in Marathi + English Mix:
+
+AlphaFold हे Google DeepMind ने develop केलेले AI-based system आहे. याचा उपयोग protein ची 3D structure predict करण्यासाठी होतो.
+Q13. What is SWISS-MODEL?
+Answer in English:
+
+SWISS-MODEL is an online server used for automated homology-based protein structure modeling.
+
+Answer in Marathi + English Mix:
+
+SWISS-MODEL हे online tool आहे. याचा उपयोग homology modeling वापरून protein ची 3D structure तयार करण्यासाठी होतो.
+Q14. What is Protein Folding?
+Answer in English:
+
+Protein Folding is the process by which a protein chain forms its functional three-dimensional structure.
+
+Answer in Marathi + English Mix:
+
+Protein Folding म्हणजे protein ची amino acid chain fold होऊन functional three-dimensional structure तयार होण्याची process.
+Q15. What is the use of Protein Structure Prediction?
+Answer in English:
+
+It helps to understand protein functions, biological activities, and interactions with other molecules.
+
+Answer in Marathi + English Mix:
+
+Protein Structure Prediction मुळे protein ची functions, biological activities आणि इतर molecules सोबतचे interactions समजण्यास मदत होते.
+Q16. What is Molecular Weight?
+Answer in English:
+
+Molecular Weight is the total mass of all atoms present in a molecule.
+
+Answer in Marathi + English Mix:
+
+Molecular Weight म्हणजे एखाद्या molecule मधील सर्व atoms च्या masses ची total value.
+Q17. What is Dalton?
+Answer in English:
+
+Dalton is a unit used to measure the molecular mass of atoms and molecules.
+
+Answer in Marathi + English Mix:
+
+Dalton हे atoms आणि molecules चे molecular mass measure करण्यासाठी वापरले जाणारे unit आहे.
+Q18. Why do we multiply protein length by 110?
+Answer in English:
+
+Because the average molecular weight of one amino acid residue in a protein is approximately 110 Dalton.
+
+Answer in Marathi + English Mix:
+
+एका amino acid residue चे average molecular weight approximately 110 Dalton असते. म्हणून protein length ला 110 ने multiply करतो.
+Q19. What is the use of the count() function?
+Answer in English:
+
+The count() function counts how many times a particular amino acid appears in a protein sequence.
+
+Answer in Marathi + English Mix:
+
+count() function protein sequence मध्ये particular amino acid किती वेळा आला आहे ते count करतो.
+Q20. What is the use of len() function?
+Answer in English:
+
+The len() function returns the total number of characters or elements in a sequence.
+
+Answer in Marathi + English Mix:
+
+len() function sequence मधील total characters किंवा elements ची संख्या return करतो.
+Q21. Why do we use upper() function?
+Answer in English:
+
+The upper() function converts all lowercase letters into uppercase letters.
+
+Answer in Marathi + English Mix:
+
+upper() function सर्व small letters चे capital letters मध्ये conversion करतो.
+Q22. How many standard amino acids are present in proteins?
+Answer in English:
+
+There are 20 standard amino acids commonly used to build proteins.
+
+Answer in Marathi + English Mix:
+
+Proteins तयार करण्यासाठी commonly 20 standard amino acids वापरले जातात.
+Q23. What is the difference between Protein and Peptide?
+Answer in English:
+
+A peptide is a short chain of amino acids, while a protein is generally a longer and folded chain of amino acids.
+
+Answer in Marathi + English Mix:
+
+Peptide म्हणजे amino acids ची short chain आणि Protein म्हणजे generally longer आणि folded amino acid chain असते.
+Q24. What is a Peptide Bond?
+Answer in English:
+
+A peptide bond is a chemical bond that connects two amino acids in a protein.
+
+Answer in Marathi + English Mix:
+
+दोन amino acids एकमेकांना connect करणाऱ्या chemical bond ला Peptide Bond म्हणतात.
+Q25. What is the role of Cysteine in protein structure?
+Answer in English:
+
+Cysteine can form disulfide bonds that help stabilize protein structure.
+
+Answer in Marathi + English Mix:
+
+Cysteine amino acid disulfide bonds तयार करू शकतो. हे bonds protein structure stable ठेवण्यास मदत करतात.
+Q26. What is a Disulfide Bond?
+Answer in English:
+
+A Disulfide Bond is a covalent bond formed between the sulfur atoms of two cysteine residues.
+
+Answer in Marathi + English Mix:
+
+दोन Cysteine residues मधील sulfur atoms जोडले जाऊन जो covalent bond तयार होतो त्याला Disulfide Bond म्हणतात.
+Q27. What is a Protein Database?
+Answer in English:
+
+A Protein Database stores information about protein sequences, structures, and functions. Examples include UniProt and Protein Data Bank (PDB).
+
+Answer in Marathi + English Mix:
+
+Protein Database मध्ये protein sequences, structures आणि functions ची information store केलेली असते. Examples म्हणजे UniProt आणि PDB.
+Q28. What is PDB?
+Answer in English:
+
+PDB stands for Protein Data Bank. It stores the three-dimensional structures of proteins and other biological molecules.
+
+Answer in Marathi + English Mix:
+
+PDB म्हणजे Protein Data Bank. यामध्ये proteins आणि इतर biological molecules च्या 3D structures store केलेल्या असतात.
+Q29. What is Ramachandran Plot?
+Answer in English:
+
+A Ramachandran Plot is used to study the allowed rotation angles of the protein backbone and evaluate protein structure quality.
+
+Answer in Marathi + English Mix:
+
+Ramachandran Plot चा उपयोग protein backbone मधील rotation angles study करण्यासाठी आणि protein structure ची quality check करण्यासाठी होतो.
+Q30. What is the difference between Sequence and Structure?
+Answer in English:
+
+Sequence represents the order of amino acids, while Structure represents the three-dimensional arrangement of those amino acids.
+
+Answer in Marathi + English Mix:
+
+Sequence म्हणजे amino acids चा specific order आणि Structure म्हणजे त्या amino acids ची three-dimensional arrangement.
+
+Quick Revision – Practical No. 3
+External's Question	Answer
+Which language is used?	Python
+How many standard amino acids?	20
+Which function counts amino acids?	count()
+Which function calculates length?	len()
+Which function converts uppercase?	upper()
+Average amino acid residue weight?	110 Dalton
+Total sequence length?	87
+Total approximate weight?	9570 Dalton
+What is Homology Modeling?	Structure prediction using a similar known protein
+What is Threading?	Fitting sequence into known structural templates
+What is PDB?	Protein Data Bank
+What is AlphaFold?	AI-based protein structure prediction system
+
+
+
+
+'''
